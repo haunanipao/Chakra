@@ -14,7 +14,7 @@ const colors = {
   },
 }
 const fonts = {
-  body: 'Tahoma',
+  body: 'Montserrat',
   heading: 'Courier New',
 }
 

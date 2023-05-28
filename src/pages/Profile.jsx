@@ -4,8 +4,10 @@ import {
   StarIcon,
   CheckCircleIcon,
   WarningIcon,
+  AtSignIcon,
 } from '@chakra-ui/icons'
 import {
+  Box,
   Tabs,
   TabList,
   TabPanels,
@@ -14,6 +16,9 @@ import {
   List,
   ListItem,
   ListIcon,
+  Image,
+  Highlight,
+  Heading,
 } from '@chakra-ui/react'
 export default function Profile() {
   return (
@@ -25,10 +30,32 @@ export default function Profile() {
 
       <TabPanels>
         <TabPanel>
+          <Box>
+            <Image
+              boxSize="200px"
+              objectFit="cover"
+              src="/img/mario.png"
+              fallbackSrc="https://via.placeholder.com/150"
+              alt="Mario"
+              borderRadius="full"
+            ></Image>
+          </Box>
+          <Heading lineHeight="tall">
+            <Highlight
+              query="Mario"
+              styles={{ px: '2', py: '1', rounded: 'full', bg: 'pink.100' }}
+            >
+              Mario
+            </Highlight>
+          </Heading>
           <List spacing={4}>
             <ListItem>
+              <ListIcon as={AtSignIcon} />
+              Mario
+            </ListItem>
+            <ListItem>
               <ListIcon as={EmailIcon} />
-              Email: mario@supermario.com
+              mario@supermario.com
             </ListItem>
             <ListItem>
               <ListIcon as={ChatIcon} />
@@ -36,7 +63,7 @@ export default function Profile() {
             </ListItem>
             <ListItem>
               <ListIcon as={StarIcon} />
-              Lorem ipsum dolor sit amet consectetur.
+              Always found with his brother, Luigi.
             </ListItem>
           </List>
         </TabPanel>

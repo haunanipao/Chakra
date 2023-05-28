@@ -52,7 +52,7 @@ export default function Navbar() {
         </Avatar>
         <Box>Mario</Box>
         <Button colorScheme="pink" onClick={showToast}>
-          Login
+          Logout
         </Button>
       </HStack>
     </Flex>

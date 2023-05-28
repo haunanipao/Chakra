@@ -10,6 +10,7 @@ export default function RootLayout() {
         as="aside"
         colSpan={{ base: 6, lg: 2, xl: 1 }}
         bg="purple.700"
+        // bgGradient="linear(to-l, #8108B7, #F213A4)"
         minHeight={{ lg: '100vh' }}
         p={{ base: '20px', lg: '30px' }}
       >
