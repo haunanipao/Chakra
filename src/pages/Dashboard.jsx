@@ -1,41 +1,70 @@
+import { EditIcon, ViewIcon } from '@chakra-ui/icons'
 import {
   Box,
-  Container,
-  Flex,
   SimpleGrid,
-  Heading,
   Text,
+  Flex,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  HStack,
+  Divider,
   Button,
-  List,
-  ListIcon,
-  ListItem,
+  Avatar,
 } from '@chakra-ui/react'
+import { useLoaderData } from 'react-router-dom'
 
 export default function Dashboard() {
+  const tasks = useLoaderData()
+
   return (
-    <SimpleGrid p={10} spacing={10} minChildWidth={200}>
-      <Box bg="white" height="200px" border="1px solid">
-        <Text
-          fontSize={{ base: '24px', md: '40px', lg: '56px' }}
-          color={{ base: 'pink.600', md: 'blue', lg: 'green' }}
-        >
-          This is responsive text that changes sizes depending on my screen
-          size.
-        </Text>
-      </Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
+    <SimpleGrid spacing={10} minChildWidth={300}>
+      {tasks &&
+        tasks.map((task) => (
+          <Card
+            key={task.id}
+            borderTop="8px"
+            borderColor="purple.400"
+            bg="white"
+          >
+            <CardHeader color="gray.700">
+              <Flex gap={5}>
+                <Avatar src={task.img} />
+                <Box>
+                  <Heading as="h3" size="sm">
+                    {task.title}
+                  </Heading>
+                  <Text>by {task.author}</Text>
+                </Box>
+              </Flex>
+            </CardHeader>
 
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
+            <CardBody color="gray.500">
+              <Text>{task.description}</Text>
+            </CardBody>
 
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
-      <Box bg="white" height="200px" border="1px solid"></Box>
+            <Divider borderColor="gray.200" />
+
+            <CardFooter>
+              <HStack>
+                <Button variant="ghost" leftIcon={<ViewIcon />}>
+                  Watch
+                </Button>
+                <Button variant="ghost" leftIcon={<EditIcon />}>
+                  Comment
+                </Button>
+              </HStack>
+            </CardFooter>
+          </Card>
+        ))}
     </SimpleGrid>
   )
+}
+
+export const tasksLoader = async () => {
+  const res = await fetch('http://localhost:3000/tasks')
+
+  return res.json()
 }
