@@ -24,13 +24,5 @@ export default function Sidebar() {
         </NavLink>
       </ListItem>
     </List>
-    // <Spacer />
-    // <VStack gap="3">
-    //   <Box bg="gray.300" p="10px">
-    //     Avatar
-    //   </Box>
-    //   <Box>Name</Box>
-    //   <Button colorScheme="pink">Login</Button>
-    // </VStack>
   )
 }

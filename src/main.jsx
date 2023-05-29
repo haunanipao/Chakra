@@ -22,8 +22,12 @@ const fonts = {
   body: 'Montserrat',
   heading: 'Courier New',
 }
+const config = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+}
 
-const theme = extendTheme({ colors, fonts })
+const theme = extendTheme({ colors, fonts, config })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -1,4 +1,4 @@
-// theme.js
+// theme.js - change
 
 // 1. import `extendTheme` function
 import { extendTheme } from '@chakra-ui/react'
@@ -10,6 +10,6 @@ const config = {
 }
 
 // 3. extend the theme
-const theme = extendTheme({ config })
+const mode = extendTheme({ config })
 
-export default theme
+export default mode
